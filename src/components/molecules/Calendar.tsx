@@ -1,5 +1,5 @@
 
-const Calender = () => {
+const Calendar = () => {
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
 
@@ -45,6 +45,6 @@ const Calender = () => {
   )
 }
 
-export default Calender
+export default Calendar
 
 
