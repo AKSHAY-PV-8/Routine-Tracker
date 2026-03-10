@@ -10,10 +10,10 @@ const AddPopUp = ({ onClickAdd, onClickCloseButton }: PopUpPropType) => {
     const [text, setText] = useState("");
 
     function handleNewTodo() {
-        const newTodo = { id: crypto.randomUUID(), text: text };
+        const newTodo: TodosType = { id: crypto.randomUUID(), text: text, status: {} };
         onClickAdd(newTodo);
         setText("");
-        onClickCloseButton()
+        onClickCloseButton();
     }
     return (
         <>

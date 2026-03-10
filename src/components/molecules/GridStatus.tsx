@@ -3,17 +3,18 @@ import type { TodosType } from "../organisms/MainSection"
 import Calendar from "./Calendar"
 
 type GridStatusProp = {
-    todos: TodosType[]
+    todos: TodosType[];
+    onUpdateStatus: (id: string, day: number) => void
 }
 
 
-const GridStatus = ({ todos }: GridStatusProp) => {
+const GridStatus = ({ todos, onUpdateStatus }: GridStatusProp) => {
 
     const now = new Date()
     const day = now.getDate();
-    const month = now.getMonth();
+    const month = now.getMonth() + 1;
     const year = now.getFullYear();
-    const numberOfDays = new Date(year, month + 1, 0).getDate();
+    const numberOfDays = new Date(year, month, 0).getDate();
 
     const checkBoxes: number[] = []
     for (let i = 1; i <= numberOfDays; i++) {
@@ -32,9 +33,11 @@ const GridStatus = ({ todos }: GridStatusProp) => {
                                 <label className="relative items-center p-px" key={checkBox}>
                                     <input
                                         type="checkbox"
+                                        checked={todo.status?.[year]?.[month]?.[checkBox] || false}
                                         style={{ borderColor: checkBox === day ? "#4ade80" : "#1e3a5f" }}
                                         className="peer appearance-none w-5 h-5 rounded-md bg-[#0a0e1a] border checked:bg-[#4ade80] disabled:bg-gray-600 hover:scale-110 hover:border-[#20c8e2]"
                                         disabled={checkBox <= day ? false : true}
+                                        onChange={() => onUpdateStatus(todo.id, checkBox)}
                                     />
                                     <TickIcon />
                                 </label>
