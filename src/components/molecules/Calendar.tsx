@@ -26,20 +26,23 @@ const Calendar = () => {
   console.log(calender)
 
   return (
-    <div className="m-4">
-      <div className="flex gap-2 mb-3">
+    <div className="m-4 ">
+      <div className="flex gap-2 mb-3 items-center ">
         {numberOfWeeks.map((week, i) =>
-          <div className="text-[#22d3ee] bg-[#1e2d45] border text-[11px] font-bold px-8 py-1 rounded-lg whitespace-nowrap">{`${week} ${i + 1}`}</div>
+          <div className="text-[#22d3ee] bg-[#1e2d45] border border-[#1e395e] text-[11px] font-bold px-8 py-1 rounded-lg whitespace-nowrap">{`${week} ${i + 1}`}</div>
         )}
       </div>
 
-      <div className="flex  gap-2">
-        {calender.map(day => day &&
-          <div key={day[0]} className="text-[#5d6c83] text-[9px] font-bold">
-            <div>{day[1]}</div>
-            <div>{day[0]}</div>
-          </div>
-        )}
+      <div className="flex items-center">
+        <h2 className="text-[#5d6c83] text-[8px] px-5 font-bold whitespace-nowrap">MY HABITS</h2>
+        <div className="flex  gap-3 pl-6">
+          {calender.map(day => day &&
+            <div key={day[0]} className="text-[#5d6c83] text-[8px] font-bold">
+              <div>{day[1]}</div>
+              <div>{day[0]}</div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

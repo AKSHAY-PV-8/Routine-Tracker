@@ -1,9 +1,9 @@
-import Calender from "./components/molecules/Calendar";
+import MainSection from "./components/organisms/MainSection";
 
 function App() {
   return (
     <>
-      <Calender/>
+      <MainSection/>
     </>
   )
 }
