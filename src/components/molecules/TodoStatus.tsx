@@ -40,7 +40,7 @@ type PillsPropType = {
     streak: number
 }
 
-function Pills({ title, streak }) {
+function Pills({ title, streak }: PillsPropType) {
     return (
         <div className="bg-[#1e2d45] text-[14px] font-medium flex gap-2 rounded-[10px] p-2">
             <span className="text-white">{title}</span>

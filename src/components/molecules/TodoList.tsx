@@ -6,9 +6,10 @@ import TickIcon from "../../assets/TickIcon"
 type TodosListPropType = {
   todos: TodosType[],
   onAddTodo: (todo: TodosType) => void
+  onDelete: (id: string) => void
 }
 
-const TodoList = ({ todos, onAddTodo }: TodosListPropType) => {
+const TodoList = ({ todos, onAddTodo, onDelete }: TodosListPropType) => {
   const [isPopUpVisible, setPopUpVisible] = useState<boolean>(false);
   const currentMonth = new Date().toLocaleDateString("en-US", { month: "long" });
   const currentDay = new Date().getDate()
@@ -40,6 +41,8 @@ const TodoList = ({ todos, onAddTodo }: TodosListPropType) => {
                   <TickIcon />
                 </label>
               <div className="text-white text-[20px] italic">{todo.text}</div>
+              <button onClick={() => onDelete(todo.id)} className="bg-[#1e2d45] text-[#64748b] text-[18px] p-1 
+        rounded-md font-bold border hover:text-[#22d1ec] hover:scale-110">❌</button>
             </div>
             <hr className=" text-[#15243a]" />
           </div>
